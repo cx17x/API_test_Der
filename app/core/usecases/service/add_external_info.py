@@ -3,7 +3,7 @@ from datetime import datetime
 
 from app.core.UnitOfWork import UnitOfWork
 from app.core.usecase import IUseCase
-from app.core.usecases.repo.service import IServiceCurr
+from app.core.repo.service import IServiceCurr
 
 
 @dataclasses.dataclass

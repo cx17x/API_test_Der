@@ -5,5 +5,5 @@ from app.core.entites import Currency
 
 class IServiceCurr(ABC):
     @abstractmethod
-    def add_exernal_info(self, currency: Currency) -> Currency:
+    def add_exernal_info(self, tiker: str) -> Currency:
         pass
