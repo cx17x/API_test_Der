@@ -1,9 +1,17 @@
 import dataclasses
 from datetime import datetime
+from enum import Enum
+from typing import Optional
+
+
+class Ticker(Enum):
+    BTC_USDT = 'btc_usdt'
+    ETH_USDT = 'eth_usdt'
 
 
 @dataclasses.dataclass
 class Currency:
-    ticker: str
+    ticker: Ticker
     price: float
-    timestamp: datetime  ## думаю будет foreign key
+    timestamp: int
+    id: Optional[int] = None
