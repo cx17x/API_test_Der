@@ -12,14 +12,20 @@ def create_async_session_maker():
     if not db_uri:
         raise ValueError("DB_URI env variable is not set")
 
-    asinc_engine = create_async_engine(
-        db_uri,
-        echo=True
+    async_engine = create_async_engine(db_uri)
+
+    asinc_engine = async_sessionmaker(
+        async_engine,
+        expire_on_commit=False,
+        class_=AsyncSession,
+        autocommit=False,
+        autoflush=False
     )
-    return async_sessionmaker(asinc_engine, autoflush=False, expire_on_commit=False)
+    return asinc_engine
 
 
 async def new_async_session() -> AsyncSession:
     session_maker = create_async_session_maker()
     async with session_maker() as session:
         yield session
+

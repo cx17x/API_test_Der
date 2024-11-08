@@ -2,12 +2,12 @@ from fastapi import FastAPI
 
 import uvicorn
 
-from app.fastapi_app.views.routers.service import service_router
+from app.fastapi_app.common_router import main_router
 
 
 def create_app() -> FastAPI:
     app = FastAPI()
-    app.include_router(service_router)
+    app.include_router(main_router)
     return app
 
 

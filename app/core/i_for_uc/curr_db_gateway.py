@@ -4,7 +4,7 @@ from typing import List
 from app.core.entites import Currency
 
 
-class CurDBGateway(ABC):
+class CurrencyGatewayDB(ABC):
     @abstractmethod
     async def save(self, currency: Currency) -> None:
         pass

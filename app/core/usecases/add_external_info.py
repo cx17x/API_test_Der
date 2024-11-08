@@ -4,7 +4,7 @@ from typing import List
 import asyncio
 
 from app.core.UnitOfWork import UnitOfWork
-from app.core.i_for_uc.curr_db_gateway import CurDBGateway
+from app.core.i_for_uc.curr_db_gateway import CurrencyGatewayDB
 from app.core.i_for_uc.deribit_gateway import DeribitGateway
 from app.core.entites import Ticker
 from app.core.usecase import IUseCase
@@ -20,7 +20,7 @@ class AddExternalDTO:
 
 
 class AddExternalUC(IUseCase):
-    def __init__(self, curr_db: CurDBGateway, deribit_gateway: DeribitGateway, uow: UnitOfWork):
+    def __init__(self, curr_db: CurrencyGatewayDB, deribit_gateway: DeribitGateway, uow: UnitOfWork):
         self.curr_db = curr_db
         self.deribit_gateway = deribit_gateway
         self.uow = uow
@@ -42,7 +42,7 @@ async def main():
 
     add_external_uc = AddExternalUC(curr_db, deribit_gateway, uow)
 
-    tickers = [Ticker('btc_usdt'), Ticker('eth_usdt')]
+    tickers = [Ticker('BTC_USDT'), Ticker('ETH_USDT')]
     dto = AddExternalDTO(ticker=tickers)
     await add_external_uc.execute(dto)
 

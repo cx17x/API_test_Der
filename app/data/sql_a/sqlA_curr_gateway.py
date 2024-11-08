@@ -2,12 +2,12 @@ from typing import List
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.i_for_uc.curr_db_gateway import CurDBGateway
+from app.core.i_for_uc.curr_db_gateway import CurrencyGatewayDB
 from app.core.entites import Currency
 from app.data.model import CurrencyModel
 
 
-class SqlACurrGateway(CurDBGateway):
+class SqlACurrGateway(CurrencyGatewayDB):
 
     def __init__(self, db_session: AsyncSession):
         self.db = db_session

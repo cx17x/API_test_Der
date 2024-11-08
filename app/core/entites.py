@@ -5,8 +5,8 @@ from typing import Optional
 
 
 class Ticker(Enum):
-    BTC_USDT = 'btc_usdt'
-    ETH_USDT = 'eth_usdt'
+    BTC_USDT = 'BTC_USDT'
+    ETH_USDT = 'ETH_USDT'
 
 
 @dataclasses.dataclass
