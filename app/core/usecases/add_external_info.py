@@ -32,19 +32,19 @@ class AddExternalUC(IUseCase):
         await self.uow.commit()
 
 
-async def main():
-    session_gen = get_aiohttp_session()
-    session = await session_gen.__anext__()
-    s1 = await new_async_session().__anext__()
-    curr_db = SqlACurrGateway(s1)
-    deribit_gateway = AiohttpDeribitGateway(session)
-    uow = s1
-
-    add_external_uc = AddExternalUC(curr_db, deribit_gateway, uow)
-
-    tickers = [Ticker('BTC_USDT'), Ticker('ETH_USDT')]
-    dto = AddExternalDTO(ticker=tickers)
-    await add_external_uc.execute(dto)
-
-
-asyncio.run(main())
+# async def main():
+#     session_gen = get_aiohttp_session()
+#     session = await session_gen.__anext__()
+#     s1 = await new_async_session().__anext__()
+#     curr_db = SqlACurrGateway(s1)
+#     deribit_gateway = AiohttpDeribitGateway(session)
+#     uow = s1
+#
+#     add_external_uc = AddExternalUC(curr_db, deribit_gateway, uow)
+#
+#     tickers = [Ticker('BTC_USDT'), Ticker('ETH_USDT')]
+#     dto = AddExternalDTO(ticker=tickers)
+#     await add_external_uc.execute(dto)
+#
+#
+# asyncio.run(main())

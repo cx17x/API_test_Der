@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.fastapi_app.views import add_extention, db_getter
+from app.fastapi_app.views import db_getter
 
 main_router = APIRouter()
 

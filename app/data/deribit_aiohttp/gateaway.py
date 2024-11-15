@@ -17,6 +17,3 @@ class AiohttpDeribitGateway(DeribitGateway):
         return Currency(ticker=data["result"]["instrument_name"],
                         price=data["result"]["index_price"],
                         timestamp=data["result"]["timestamp"])
-
-
-# print(urls.BASE_URL + urls.GET_TICKET + f'?instrument_name=ETH_USDT')
